@@ -28,8 +28,6 @@ honest_sections <- function() {
 
 honest_page_range <- function(x) {
   
-  # x <- sections[1]
-  
   # read page
   html <- read_html(x)
   
@@ -79,13 +77,20 @@ honest_scrape_records <- function(section) {
       html_node("p") %>% 
       html_text()
     
+    # get category name
+    category <- section %>% 
+      str_remove("https://honestjons.com/shop/category/") %>% 
+      str_remove("/A-Z") %>% 
+      str_replace(pattern = "_", replacement = " / ")
+    
     Sys.sleep(1.5)
     
     tibble(
       artist = artists,
       release = releases,
       label = labels,
-      review = reviews
+      review = reviews,
+      category = category
     )
   })
 }

@@ -8,6 +8,7 @@ Data from [Honest Jon's](https://honestjons.com) listings, collated in July 2019
 | `release` | name of release | text |
 | `label` | name of label | text |
 | `review` | accompanying record review | text |
+| `category` | release category/genre | text |
 
 ## Code
 
